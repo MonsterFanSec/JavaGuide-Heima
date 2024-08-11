@@ -6,7 +6,6 @@ public class WhileDemo1 {
         //分析：
         //开始条件：1
         //结束条件：100
-
         int i = 1;
         while(i <= 100){
             System.out.println(i);
