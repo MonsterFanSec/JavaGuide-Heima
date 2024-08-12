@@ -1,3 +1,6 @@
+/**
+ * 静态初始化
+ */
 package com.itheima.arraydemo;
 
 public class ArrayDemo3 {
