@@ -22,7 +22,7 @@ public class GirlFriendTest {
 		gf2.age = 19;
 		gf2.gender = "萌妹子";
 
-		System.out.println(gf2.name);	// mac批量修改变量名快捷键：按住option，向下拖
+		System.out.println(gf2.name);    // mac批量修改变量名快捷键：按住option，向下拖
 		System.out.println(gf2.age);
 		System.out.println(gf2.gender);
 

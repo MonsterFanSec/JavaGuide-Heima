@@ -8,11 +8,11 @@ public class Phone {
 
 
 	//行为：
-	public void call(){
+	public void call() {
 		System.out.println("手机在打电话");
 	}
 
-	public void playGame(){
+	public void playGame() {
 		System.out.println("手机在玩游戏");
 	}
 }
