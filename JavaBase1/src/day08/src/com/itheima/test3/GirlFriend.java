@@ -22,10 +22,10 @@ public class GirlFriend {
 	//get方法：对外提供成员变量的值
 
 	//作用：给成员变量name进行赋值的
-	public void setName(String name) {
+	public void setName(String n) {
 		//局部变量表示测试类中调用方法传递过来的数据
 		//等号的左边：就表示成员位置的name
-		this.name = name;
+		name = n;
 	}
 
 	//作用：对外提供name属性的
@@ -51,8 +51,8 @@ public class GirlFriend {
 
 
 	//gender
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setGender(String g) {
+		gender = g;
 	}
 
 	public String getGender() {
