@@ -4,14 +4,15 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Java.iml" filepath="$PROJECT_DIR$/.idea/Java.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaBase1/JavaBase1.iml" filepath="$PROJECT_DIR$/JavaBase1/JavaBase1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/JavaBase1/src/day02/day02.iml" filepath="$PROJECT_DIR$/JavaBase1/src/day02/day02.iml" />
-      <module fileurl="file://$PROJECT_DIR$/JavaBase1/src/day03/day03.iml" filepath="$PROJECT_DIR$/JavaBase1/src/day03/day03.iml" />
-      <module fileurl="file://$PROJECT_DIR$/JavaBase1/src/day04/day04.iml" filepath="$PROJECT_DIR$/JavaBase1/src/day04/day04.iml" />
-      <module fileurl="file://$PROJECT_DIR$/JavaBase1/src/day05/day05.iml" filepath="$PROJECT_DIR$/JavaBase1/src/day05/day05.iml" />
-      <module fileurl="file://$PROJECT_DIR$/JavaBase1/src/day06/day06.iml" filepath="$PROJECT_DIR$/JavaBase1/src/day06/day06.iml" />
-      <module fileurl="file://$PROJECT_DIR$/JavaBase1/src/day07/day07.iml" filepath="$PROJECT_DIR$/JavaBase1/src/day07/day07.iml" />
-      <module fileurl="file://$PROJECT_DIR$/JavaBase1/src/day08/day08.iml" filepath="$PROJECT_DIR$/JavaBase1/src/day08/day08.iml" />
-      <module fileurl="file://$PROJECT_DIR$/JavaBase1/src/day05/src/com/itheima/test/test.iml" filepath="$PROJECT_DIR$/JavaBase1/src/day05/src/com/itheima/test/test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBase1/src/day02-Java基础概念/day02-Java基础概念.iml" filepath="$PROJECT_DIR$/JavaBase1/src/day02-Java基础概念/day02-Java基础概念.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBase1/src/day03-运算符/day03-运算符.iml" filepath="$PROJECT_DIR$/JavaBase1/src/day03-运算符/day03-运算符.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBase1/src/day04-判断和循环/day04-判断和循环.iml" filepath="$PROJECT_DIR$/JavaBase1/src/day04-判断和循环/day04-判断和循环.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBase1/src/day05-循环高级和数组/day05-循环高级和数组.iml" filepath="$PROJECT_DIR$/JavaBase1/src/day05-循环高级和数组/day05-循环高级和数组.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBase1/src/day06-方法/day06-方法.iml" filepath="$PROJECT_DIR$/JavaBase1/src/day06-方法/day06-方法.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBase1/src/day07-综合练习/day07-综合练习.iml" filepath="$PROJECT_DIR$/JavaBase1/src/day07-综合练习/day07-综合练习.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBase1/src/day08-面向对象/day08-面向对象.iml" filepath="$PROJECT_DIR$/JavaBase1/src/day08-面向对象/day08-面向对象.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBase1/src/day09/day09.iml" filepath="$PROJECT_DIR$/JavaBase1/src/day09/day09.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBase1/src/day05-循环高级和数组/src/com/itheima/test/test.iml" filepath="$PROJECT_DIR$/JavaBase1/src/day05-循环高级和数组/src/com/itheima/test/test.iml" />
     </modules>
   </component>
 </project>
