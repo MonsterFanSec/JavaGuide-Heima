@@ -1,4 +1,4 @@
-package com.itheima.test2;
+package com.itheima.test2.Test1;
 
 import java.util.Scanner;
 
@@ -13,7 +13,7 @@ import java.util.Scanner;
  *         罗马数字里面是没有0的
  *         如果键盘录入的数字包含0，可以变成""(长度为0的字符串)
  */
-public class Test1 {
+public class Case1 {
 	public static void main(String[] args) {
 		//	1.键盘录入一个字符串
 		//	书写Scanner的代码

@@ -1,4 +1,4 @@
-package com.itheima.test2;
+package com.itheima.test2.Test2;
 
 /**
  * 练习：调整字符串
@@ -9,7 +9,7 @@ package com.itheima.test2;
  * 如果在若干次调整操作之后，A能变成B，那么返回True。
  * 如果不能匹配成功，则返回false
  */
-public class Test3 {
+public class Case1 {
 	public static void main(String[] args) {
 		// 1.定义两个字符串
 		String strA = "abcde";
