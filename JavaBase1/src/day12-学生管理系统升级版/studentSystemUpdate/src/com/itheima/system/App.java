@@ -303,6 +303,9 @@ public class App {
 			boolean result = checkUserInfo(list, useInfo);    // 快速创建方法，快捷键：option + Enter
 			if (result) {
 				System.out.println("登录成功，可以开始使用学生管理系统了");
+				//创建对象调用方法，启动学生管理系统
+				StudentSystem ss = new StudentSystem();
+				ss.startStudentSystem();
 				break;
 			} else {
 				System.out.println("登录失败，用户名或密码错误");
