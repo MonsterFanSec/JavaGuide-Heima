@@ -356,7 +356,9 @@ public class App {
 		return new String(arr);
 	}
 
-	/** 判断用户是否存在于userList */
+	/**
+	 * 判断用户是否存在于userList
+	 */
 	private static boolean checkUserInfo(ArrayList<User> list, User useInfo) {
 		// 遍历集合，判断用户是否存在，如果存在登录成功，如果不存在登录失败
 		for (int i = 0; i < list.size(); i++) {
@@ -373,6 +375,65 @@ public class App {
 	 * 3.忘记密码
 	 */
 	private static void forgetPassword(ArrayList<User> list) {
-		System.out.println("忘记密码");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("请输入用户名");
+		String username = sc.next();
+
+		boolean flag = contains(list, username);
+		if (!flag) {
+			System.out.println("当前用户" + username + "未注册，请先注册");
+			return;
+		}
+
+		// 键盘录入身份证号码和手机号码
+		System.out.println("请输入身份证号码");
+		String personID = sc.next();
+		System.out.println("请输入手机号码");
+		String phoneNumber = sc.next();
+
+
+		// 需要把用户对象通过索引先获取出来。
+		int index = findIndex(list, username);
+		User user = list.get(index);
+		// 比较用户对象中的手机号码和身份证号码是否相同，personID中的'X'与'x'是一致的，不区分大小写
+		if (!(user.getPersonID().equalsIgnoreCase(personID) && user.getPhoneNumber().equals(phoneNumber))) {
+			System.out.println("身份证号码或手机号码输入有误，不能修改密码");
+			return;
+		}
+
+		// 当代码执行到这里，表示所有的数据全部验证成功，直接修改即可
+		String password;
+		while (true) {
+			System.out.println("请输入新的密码");
+			password = sc.next();
+			System.out.println("请再次输入新的密码");
+			String againPassword = sc.next();
+			if (!password.equals(againPassword)) {
+				System.out.println("两次密码输入不一致，请重新输入");
+				continue;
+			} else {
+				System.out.println("两次密码输入一致");
+				break;
+			}
+		}
+
+		// 直接修改即可
+		user.setPassword(password);
+		System.out.println("密码修改成功");
+	}
+
+	/**
+	 * 查找当前username在集合中是否存在：
+	 * 如果存在，则返回索引；
+	 * 如果不存在，返回-1；
+	 */
+	private static int findIndex(ArrayList<User> list, String username) {
+		for (int i = 0; i < list.size(); i++) {
+			User user = list.get(i);
+			if (user.getUsername().equals(username)) {
+				return i;
+			}
+		}
+		return -1;
 	}
 }
