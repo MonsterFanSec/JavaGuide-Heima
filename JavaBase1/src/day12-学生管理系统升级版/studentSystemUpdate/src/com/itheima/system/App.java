@@ -356,6 +356,7 @@ public class App {
 		return new String(arr);
 	}
 
+	/** 判断用户是否存在于userList */
 	private static boolean checkUserInfo(ArrayList<User> list, User useInfo) {
 		// 遍历集合，判断用户是否存在，如果存在登录成功，如果不存在登录失败
 		for (int i = 0; i < list.size(); i++) {
