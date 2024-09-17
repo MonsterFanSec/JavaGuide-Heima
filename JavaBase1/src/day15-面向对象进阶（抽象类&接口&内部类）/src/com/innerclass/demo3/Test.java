@@ -1,7 +1,5 @@
 package com.innerclass.demo3;
 
-import java.util.Scanner;
-
 /*
  * 成员内部类如何获取外部类的成员变量
  */
