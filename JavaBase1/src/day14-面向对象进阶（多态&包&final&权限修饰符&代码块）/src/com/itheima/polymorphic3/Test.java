@@ -10,7 +10,7 @@ package com.itheima.polymorphic3;
  * 	总结：
  * 		1.多态的优势：
  * 			方法中，使用父类型作为参数，可以接收所有子类对象
- * 		2.多态的弊端时什么？
+ * 		2.多态的弊端是什么？
  * 			不能使用子类的特有功能
  * 		3.引用数据类型的类型转化，有几种方式？
  * 			自动类型转换：Person p = new Student();
@@ -43,8 +43,8 @@ public class Test {
 		b.lookHome();
 
 		/* 细节：转换的时候不能瞎转，如果转成其他类的类型，就会报错 */
-		//Cat c = (Cat) a;
-		//c.catchMouse();
+		// Cat c = (Cat) a;
+		// c.catchMouse();
 
 
 		/* 如果无法判断的情况下，使用instanceof来判断类型 */

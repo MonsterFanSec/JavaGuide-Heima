@@ -7,7 +7,6 @@ package oopExtends.demo5;
  * 	 System.out.println(name);			// 从局部位置开始往上找
  * 	 System.out.println(this.name);		// 从本类成员位置开始往上找
  * 	 System.out.println(super.name);    // 父类成员位置开始往上找
- *
  */
 public class Test {
 	public static void main(String[] args) {

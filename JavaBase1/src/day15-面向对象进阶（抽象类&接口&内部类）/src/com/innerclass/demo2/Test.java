@@ -43,15 +43,14 @@ public class Test {
 
 		// 我要创建的是谁的对象？-- 内部类的对象
 
-		// 方式二：
-		Outer.Inner oi = new Outer().new Inner();
-		System.out.println(oi);    // com.innerclass.demo2.Outer$Inner@5ca881b5，用$表示的内部类
-		System.out.println(oi.a);
-
-
 		// 方式一：
 		// Outer.Inner1 oi1 = new Outer().new Inner1();	// 报错，因为Inner1为private
 		Outer o = new Outer();
 		System.out.println(o.getInstance());
+
+		// 方式二：
+		Outer.Inner oi = new Outer().new Inner();
+		System.out.println(oi);    // com.innerclass.demo2.Outer$Inner@5ca881b5，用$表示的内部类
+		System.out.println(oi.a);
 	}
 }

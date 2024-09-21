@@ -1,4 +1,4 @@
-package com.innerclass.demo7;
+package com.innerclass.demo8;
 
 public interface Swim {
     public abstract void swim();

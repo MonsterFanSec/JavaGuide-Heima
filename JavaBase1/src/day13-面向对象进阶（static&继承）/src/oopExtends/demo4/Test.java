@@ -27,7 +27,7 @@ class Zi extends Fu {
 	public void ziShow() {
 		String name = "ziShow";
 		System.out.println(name);    // ziShow，局部位置找，找到打印
-		System.out.println(age);    // 100，布局位置找，一直往上找，直到找到
+		System.out.println(age);    // 100，局部位置找，一直往上找，直到找到
 
 		System.out.println(this.name);    // Zi，this：会再本类的成员位置找
 		System.out.println(super.name);    // Fu，super：表示父类

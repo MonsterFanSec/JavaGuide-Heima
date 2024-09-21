@@ -9,10 +9,10 @@ public class Dog extends Animal {
 	 */
 
 	// 空参构造
-	// 带全部参数的构造
 	public Dog() {
 	}
 
+	// 带全部参数的构造
 	public Dog(int age, String color) {
 		super(age, color);
 	}

@@ -19,7 +19,7 @@ public interface InterA {
 
 	// ------------------------------------------------
 
-
+	// 静态方法不用被重写
 	public static void show1() {
 		System.out.println("show1方法开始执行了");
 		show5();

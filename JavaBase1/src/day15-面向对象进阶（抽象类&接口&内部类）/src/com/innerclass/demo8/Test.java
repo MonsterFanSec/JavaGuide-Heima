@@ -1,4 +1,4 @@
-package com.innerclass.demo7;
+package com.innerclass.demo8;
 
 /*
  *	总结：
@@ -14,7 +14,7 @@ package com.innerclass.demo7;
  * 		4.使用场景
  * 			当方法的参数是接口或者类时，以接口为例，可以传递这个接口的实现类对象，如果实现类只要使用一次，就可以用匿名内部类简化代码。
  */
-public class Test2 {
+public class Test {
 	// 如果写在了这个成员位置，则这是一个没有名字的“成员内部类”
 	Swim s = new Swim() {
 		@Override
@@ -31,14 +31,15 @@ public class Test2 {
 		 *  	}
 		 */
 
-		//	整体我们可以理解为Swim接口的实现类对象，接口多态
 		//	如果写在了方法内部，那么这个匿名内部类是“局部内部类”的一种
-		Swim s = new Swim() {
-			@Override
-			public void swim() {
-				System.out.println("重写之后游泳方法");
-			}
-		};
+		Swim s =
+				//	整体我们可以理解为Swim接口的实现类对象，接口多态
+				new Swim() {
+					@Override
+					public void swim() {
+						System.out.println("重写之后游泳方法");
+					}
+				};
 
 		// 编译看左边，运行看右边的原则
 		s.swim();
