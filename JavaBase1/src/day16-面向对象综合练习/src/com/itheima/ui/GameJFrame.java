@@ -360,10 +360,35 @@ public class GameJFrame extends JFrame implements KeyListener, ActionListener {
 			initImage();
 		} else if (obj == reLoginItem) {
 			System.out.println("重新登录");
+			// 关闭当前的游戏界面
+			this.setVisible(false);
+			// 打开登录界面
+			new LoginJFrame();
 		} else if (obj == closeItem) {
 			System.out.println("关闭游戏");
+			// 直接关闭虚拟机即可
+			System.exit(0);
 		} else if (obj == accountItem) {
 			System.out.println("公众号");
+
+			// 创建一个弹框对象
+			JDialog jDialog = new JDialog();
+			// 创建一个管理图片的容器对象JLabel
+			JLabel jLabel = new JLabel(new ImageIcon(path + "/image/about.png"));
+			// 设置位置和宽高
+			jLabel.setBounds(0, 0, 258, 258);
+			// 把图片添加到弹框当中
+			jDialog.getContentPane().add(jLabel);
+			// 给弹框设置大小
+			jDialog.setSize(344, 344);
+			// 让弹框置顶
+			jDialog.setAlwaysOnTop(true);
+			// 让弹框居中
+			jDialog.setLocationRelativeTo(null);
+			// 弹框不关闭则无法操作下面的界面
+			jDialog.setModal(true);
+			// 让弹框显示出来
+			jDialog.setVisible(true);
 		}
 	}
 }
