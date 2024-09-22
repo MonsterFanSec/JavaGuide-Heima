@@ -1,7 +1,20 @@
 package com.itheima.ui;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
 import java.util.Random;
+
+/*
+ * 小结：
+ * 	1.将15张小图片移动到界面的中央偏下方
+ * 	2.添加背景图片
+ * 		细节：代码中后添加的，塞在下方
+ * 	3.添加图片的边框
+ * 		jLabel.setBorder(new BevelBorder(1));
+ * 	4.优化路径
+ * 		- 从盘符开始的：绝对路径
+ * 		- 非盘符开始的：相对路径
+ */
 
 public class GameJFrame extends JFrame {
 	//	在JAVA中，JFrame表示界面/窗体
@@ -105,7 +118,18 @@ public class GameJFrame extends JFrame {
 		}
 	}
 
+	// 细节：先加载的图片在上方，后加载的图片塞在下面。
 	private void initImage() {
+		/*
+		 *	路径分为两种：
+		 * 	绝对路径：一定是从根路径开始的。/
+		 *  	相对路径：不是从盘符开始的
+		 *      相对路径相对当前项目而言的。 aaa/bbb
+		 *      在当前项目下，去找aaa文件夹，里面再找bbb文件夹。
+		 */
+		String path = "/Users/daykalif/Desktop/Java/JavaBase1/src/day16-面向对象综合练习";
+
+
 		//	外循环--把内循环重复执行了4次
 		for (int i = 0; i < 4; i++) {
 			//	内循环--表示在一行添加4张图片
@@ -114,14 +138,24 @@ public class GameJFrame extends JFrame {
 				int num = data[i][j];
 
 				// 创建一个图片ImageIcon的对象，传入路径
-				ImageIcon icon = new ImageIcon("/Users/daykalif/Desktop/Java/JavaBase1/src/day16-面向对象综合练习/image/animal/animal3/" + num + ".jpg");
+				ImageIcon icon = new ImageIcon(path + "/image/animal/animal3/" + num + ".jpg");
 				// 创建一个JLabel的对象（管理容器）
 				JLabel jLabel = new JLabel(icon);
 				// 指定图片位置，如果不设置位置,默认会放到界面正中央
-				jLabel.setBounds(105 * j, 105 * i, 105, 105);
+				jLabel.setBounds(105 * j + 83, 105 * i + 134, 105, 105);
+				// 给图片添加边框；0:表示让图片凸起来，1：表示让图片凹下去
+				jLabel.setBorder(new BevelBorder(BevelBorder.LOWERED));
 				// 把管理容器添加到界面中
 				this.getContentPane().add(jLabel);
 			}
 		}
+
+
+		// 添加背景图片
+		JLabel background = new JLabel(new ImageIcon(path + "/image/background.png"));
+		background.setBounds(40, 40, 508, 560);
+		// 把背景图片添加到界面当中
+		this.getContentPane().add(background);
+
 	}
 }
