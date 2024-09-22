@@ -40,8 +40,7 @@ public class GameJFrame extends JFrame implements KeyListener {
 	 *  	相对路径：不是从盘符开始的
 	 *      相对路径相对当前项目而言的。 aaa/bbb
 	 *      在当前项目下，去找aaa文件夹，里面再找bbb文件夹。
-	 */
-	String path = "/Users/daykalif/Desktop/Java/JavaBase1/src/day16-面向对象综合练习";
+	 */ String path = "/Users/daykalif/Desktop/Java/JavaBase1/src/day16-面向对象综合练习";
 	String imagePath = "/image/animal/animal2";
 
 
@@ -51,6 +50,9 @@ public class GameJFrame extends JFrame implements KeyListener {
 	// 记录空白方块在二维数组中的位置
 	int x = 0;
 	int y = 0;
+
+	// 定义一个二维数组，存储正确的数据
+	int[][] win = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 0}};
 
 
 	// 空参构造
@@ -158,6 +160,14 @@ public class GameJFrame extends JFrame implements KeyListener {
 		// 清空原本已经出现的所有图片
 		this.getContentPane().removeAll();
 
+		if (victory()) {
+			// 显示胜利的图标
+			JLabel winJLabel = new JLabel(new ImageIcon(path + "/image/win.png"));
+			winJLabel.setBounds(203, 283, 197, 73);
+			this.getContentPane().add(winJLabel);
+		}
+
+
 		//	外循环--把内循环重复执行了4次
 		for (int i = 0; i < 4; i++) {
 			//	内循环--表示在一行添加4张图片
@@ -219,6 +229,12 @@ public class GameJFrame extends JFrame implements KeyListener {
 
 	@Override
 	public void keyReleased(KeyEvent e) {
+		// 判断游戏是否胜利，如果胜利，此方法需要直接结束，不能再执行下面的移动代码了
+		if (victory()) {
+			// return的2个作用：1.返回结果；2.结束方法；（此处用作结束方法）
+			return;
+		}
+
 		// 对上，下，左，右进行判断
 		// 左：37 上：38 右：39 下：40
 		int code = e.getKeyCode();
@@ -282,13 +298,24 @@ public class GameJFrame extends JFrame implements KeyListener {
 			initImage();
 		} else if (code == 87) {
 			// 按下字母W不放，直接拼图完成，实现作弊
-			data = new int[][]{
-					{1, 2, 3, 4},
-					{5, 6, 7, 8},
-					{9, 10, 11, 12},
-					{13, 14, 15, 0}
-			};
+			data = new int[][]{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 0}};
 			initImage();
 		}
+	}
+
+	// 判断data数组中的数据是否跟win数组中相同，如果全部相同，返回true。否则返回false
+	public boolean victory() {
+		for (int i = 0; i < data.length; i++) {
+			// i : 依次表示二维数组 data里面的索引
+			// data[i]：依次表示每一个一维数组
+			for (int j = 0; j < data[i].length; j++) {
+				if (data[i][j] != win[i][j]) {
+					// 只要有一个数据不一样，则返回false
+					return false;
+				}
+			}
+		}
+		// 循环结束表示数组遍历比较完毕，全都一样返回true
+		return true;
 	}
 }
