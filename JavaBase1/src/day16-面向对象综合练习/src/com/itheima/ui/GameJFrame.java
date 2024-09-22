@@ -15,8 +15,32 @@ public class GameJFrame extends JFrame {
 		// 初始化菜单
 		initJMenuBar();
 
-		//	让显示显示出来，建议写在最后
+		// 初始化图片
+		initImage();
+
+		// 让显示显示出来，建议写在最后
 		this.setVisible(true);
+	}
+
+	private void initImage() {
+		int number = 1;
+		//	外循环--把内循环重复执行了4次
+		for (int i = 0; i < 4; i++) {
+			//	内循环--表示在一行添加4张图片
+			for (int j = 0; j < 4; j++) {
+
+				// 创建一个图片ImageIcon的对象，传入路径
+				ImageIcon icon = new ImageIcon("/Users/daykalif/Desktop/Java/JavaBase1/src/day16-面向对象综合练习/image/animal/animal3/" + number + ".jpg");
+				// 创建一个JLabel的对象（管理容器）
+				JLabel jLabel = new JLabel(icon);
+				// 指定图片位置，如果不设置位置,默认会放到界面正中央
+				jLabel.setBounds(105 * j, 105 * i, 105, 105);
+				// 把管理容器添加到界面中
+				this.getContentPane().add(jLabel);
+				// 添加一次之后，number需要自增，表示下一次加载后面一张图片
+				number++;
+			}
+		}
 	}
 
 	private void initJMenuBar() {
@@ -49,7 +73,7 @@ public class GameJFrame extends JFrame {
 	}
 
 	private void initJFrame() {
-		//	比如，宽高，直接展示出来
+		// 比如，宽高，直接展示出来
 		this.setSize(630, 680);
 
 		// 设置界面的标题
@@ -63,5 +87,8 @@ public class GameJFrame extends JFrame {
 
 		// 设置关闭模式
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+		// 取消默认的居中放置，只有取消了才会按照XY轴的形式添加组件
+		this.setLayout(null);
 	}
 }
