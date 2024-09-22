@@ -34,6 +34,17 @@ public class GameJFrame extends JFrame implements KeyListener {
 	//	与此同时，子类也表示界面/窗体
 	//	规定：GameJFrame这个界面表示的就是游戏的主界面，以后跟游戏相关的所有逻辑都写在这个类中
 
+	/*
+	 *	路径分为两种：
+	 * 	绝对路径：一定是从根路径开始的。/
+	 *  	相对路径：不是从盘符开始的
+	 *      相对路径相对当前项目而言的。 aaa/bbb
+	 *      在当前项目下，去找aaa文件夹，里面再找bbb文件夹。
+	 */
+	String path = "/Users/daykalif/Desktop/Java/JavaBase1/src/day16-面向对象综合练习";
+	String imagePath = "/image/animal/animal2";
+
+
 	// 创建一个二维数组，目的：用来管理数据；加载图片的时候，会根据二维数组中的数据进行加载
 	int[][] data = new int[4][4];
 
@@ -147,16 +158,6 @@ public class GameJFrame extends JFrame implements KeyListener {
 		// 清空原本已经出现的所有图片
 		this.getContentPane().removeAll();
 
-		/*
-		 *	路径分为两种：
-		 * 	绝对路径：一定是从根路径开始的。/
-		 *  	相对路径：不是从盘符开始的
-		 *      相对路径相对当前项目而言的。 aaa/bbb
-		 *      在当前项目下，去找aaa文件夹，里面再找bbb文件夹。
-		 */
-		String path = "/Users/daykalif/Desktop/Java/JavaBase1/src/day16-面向对象综合练习";
-
-
 		//	外循环--把内循环重复执行了4次
 		for (int i = 0; i < 4; i++) {
 			//	内循环--表示在一行添加4张图片
@@ -165,7 +166,7 @@ public class GameJFrame extends JFrame implements KeyListener {
 				int num = data[i][j];
 
 				// 创建一个图片ImageIcon的对象，传入路径
-				ImageIcon icon = new ImageIcon(path + "/image/animal/animal3/" + num + ".jpg");
+				ImageIcon icon = new ImageIcon(path + imagePath + "/" + num + ".jpg");
 				// 创建一个JLabel的对象（管理容器）
 				JLabel jLabel = new JLabel(icon);
 				// 指定图片位置，如果不设置位置,默认会放到界面正中央
@@ -193,9 +194,27 @@ public class GameJFrame extends JFrame implements KeyListener {
 
 	}
 
+	// 按下不松时会调用这个方法
 	@Override
 	public void keyPressed(KeyEvent e) {
+		int code = e.getKeyCode();
+		if (code == 65) {
+			// 把界面中所有的图片全部删除
+			this.getContentPane().removeAll();
 
+			// 加载第一张完整的图片
+			JLabel all = new JLabel(new ImageIcon(path + imagePath + "/all.jpg"));
+			all.setBounds(83, 134, 420, 420);
+			this.getContentPane().add(all);
+
+			// 加载背景图片，并添加背景图片
+			JLabel background = new JLabel(new ImageIcon(path + "/image/background.png"));
+			background.setBounds(40, 40, 508, 560);
+			// 把背景图片添加到界面当中
+			this.getContentPane().add(background);
+			// 刷新界面
+			this.getContentPane().repaint();
+		}
 	}
 
 	@Override
@@ -257,6 +276,8 @@ public class GameJFrame extends JFrame implements KeyListener {
 			x--;
 
 			// 调用方法按照最新的数字加载图片
+			initImage();
+		} else if (code == 65) {
 			initImage();
 		}
 	}
