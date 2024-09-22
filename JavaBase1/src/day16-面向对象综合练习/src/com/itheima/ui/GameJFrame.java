@@ -278,6 +278,16 @@ public class GameJFrame extends JFrame implements KeyListener {
 			// 调用方法按照最新的数字加载图片
 			initImage();
 		} else if (code == 65) {
+			// 按下字母A不放，临时查看一次完整图片
+			initImage();
+		} else if (code == 87) {
+			// 按下字母W不放，直接拼图完成，实现作弊
+			data = new int[][]{
+					{1, 2, 3, 4},
+					{5, 6, 7, 8},
+					{9, 10, 11, 12},
+					{13, 14, 15, 0}
+			};
 			initImage();
 		}
 	}
