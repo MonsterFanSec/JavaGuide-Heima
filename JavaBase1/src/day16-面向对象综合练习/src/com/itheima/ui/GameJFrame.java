@@ -2,6 +2,8 @@ package com.itheima.ui;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Random;
@@ -29,7 +31,7 @@ import java.util.Random;
  * 		- 当空白方块在最右侧时，无法再次进行左移
  */
 
-public class GameJFrame extends JFrame implements KeyListener {
+public class GameJFrame extends JFrame implements KeyListener, ActionListener {
 	//	在JAVA中，JFrame表示界面/窗体
 	//	与此同时，子类也表示界面/窗体
 	//	规定：GameJFrame这个界面表示的就是游戏的主界面，以后跟游戏相关的所有逻辑都写在这个类中
@@ -57,6 +59,13 @@ public class GameJFrame extends JFrame implements KeyListener {
 	// 定义变量用来统计步数
 	int step = 0;
 
+	// 创建选项下面的条目对象
+	JMenuItem replayItem = new JMenuItem("重新游戏");
+	JMenuItem reLoginItem = new JMenuItem("重新登录");
+	JMenuItem closeItem = new JMenuItem("关闭游戏");
+
+	JMenuItem accountItem = new JMenuItem("公众号");
+
 	// 空参构造
 	public GameJFrame() {
 		// 初始化界面
@@ -82,19 +91,18 @@ public class GameJFrame extends JFrame implements KeyListener {
 		JMenu functionJMenu = new JMenu("功能");
 		JMenu aboutJMenu = new JMenu("关于我们");
 
-		// 创建选项下面的条目对象
-		JMenuItem replayItem = new JMenuItem("重新游戏");
-		JMenuItem reLoginItem = new JMenuItem("重新登录");
-		JMenuItem closeItem = new JMenuItem("关闭游戏");
-
-		JMenuItem accountItem = new JMenuItem("公众号");
-
 		// 将每一个选项下面的条目添加到选项中
 		functionJMenu.add(replayItem);
 		functionJMenu.add(reLoginItem);
 		functionJMenu.add(closeItem);
 
 		aboutJMenu.add(accountItem);
+
+		// 给条目绑定事件
+		replayItem.addActionListener(this);    // this：执行本类里面对应的方法，也就是继承ActionListener后，重写的actionPerformed方法
+		reLoginItem.addActionListener(this);
+		closeItem.addActionListener(this);
+		accountItem.addActionListener(this);
 
 		// 将菜单里面的两个选项添加到菜单当中
 		jMenuBar.add(functionJMenu);
@@ -334,5 +342,28 @@ public class GameJFrame extends JFrame implements KeyListener {
 		}
 		// 循环结束表示数组遍历比较完毕，全都一样返回true
 		return true;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// 获取当前被点击的条目对象
+		Object obj = e.getSource();
+
+		// 判断
+		if (obj == replayItem) {
+			System.out.println("重新游戏");
+			// 计步器清零
+			step = 0;
+			// 再次打乱二维数组中的数据
+			initData();
+			// 重新加载图片
+			initImage();
+		} else if (obj == reLoginItem) {
+			System.out.println("重新登录");
+		} else if (obj == closeItem) {
+			System.out.println("关闭游戏");
+		} else if (obj == accountItem) {
+			System.out.println("公众号");
+		}
 	}
 }
