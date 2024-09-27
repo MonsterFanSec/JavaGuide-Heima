@@ -51,9 +51,9 @@ public class Student {
 		this.age = age;
 	}
 
-	public String toString() {
-		return "Student{name = " + name + ", age = " + age + "}";
-	}
+	//public String toString() {
+	//	return "Student{name = " + name + ", age = " + age + "}";
+	//}
 
 	@Override
 	public boolean equals(Object o) {
