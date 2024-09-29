@@ -1,4 +1,4 @@
-package com.itheima.date;
+package com.itheima.jdk7Date;
 
 /*
  * JDK7以前的时间相关类

@@ -1,4 +1,4 @@
-package com.itheima.date;
+package com.itheima.jdk7Date;
 
 import java.util.Calendar;
 import java.util.Date;
