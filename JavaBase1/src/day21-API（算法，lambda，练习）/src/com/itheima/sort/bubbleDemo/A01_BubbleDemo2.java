@@ -1,4 +1,4 @@
-package com.itheima.sort;
+package com.itheima.sort.bubbleDemo;
 
 /*
  * 冒泡排序：

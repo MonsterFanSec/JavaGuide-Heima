@@ -1,4 +1,4 @@
-package com.itheima.sort;
+package com.itheima.sort.selectionDemo;
 
 /*
  * 选择排序：
@@ -7,27 +7,23 @@ package com.itheima.sort;
  *  3.第一次循环结束后，最小的数据已经确定。
  *  4.第二次循环从1索引开始以此类推。
  */
-public class A02_SelectionDemo2 {
+public class A02_SelectionDemo1 {
 	public static void main(String[] args) {
 		// 1.定义数组
 		int[] arr = {2, 4, 5, 3, 1};
 
 		// 2.利用选择排序让数组变成 1 2 3 4 5
 
-		// 最终代码：
-		// 外循环：几轮
-		// i:表示这一轮中，我拿着哪个索引上的数据跟后面的数据进行比较并交换
-		for (int i = 0; i < arr.length - 1; i++) {    // 从0索引开始，遍历4轮即可
-			// 内循环：每一轮我要干什么事情？
-			// 拿着i跟i后面的数据进行比较交换
-			for (int j = i + 1; j < arr.length; j++) {
-				if (arr[i] > arr[j]) {
-					int temp = arr[i];
-					arr[i] = arr[j];
-					arr[j] = temp;
-				}
+		// 第一轮：
+		// 从0索引开始，跟后面的元素一一比较。
+		for (int i = 0 + 1; i < arr.length; i++) {    // 第一次比较，可以拿着0索引跟后面的数据进行比较，因此后面那个数的索引可以是1开始
+			if (arr[0] > arr[i]) {
+				int temp = arr[0];
+				arr[0] = arr[i];
+				arr[i] = temp;
 			}
 		}
+
 		printArr(arr);
 	}
 
