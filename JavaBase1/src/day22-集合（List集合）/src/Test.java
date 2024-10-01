@@ -23,8 +23,14 @@
  * Collection：
  * 		Collection是单列集合的祖宗接口，它的功能是全部单列集合都可以继承使用的。
  *
- *
- *
+ * 总结：
+ * 		1.Collection是单列集合的顶层接口，所有方法被List和Set系列集合共享。
+ *		2.常见成员方法：
+ * 			add、clear、remove、contains、isEmpty、size
+ * 		3.三种通用的遍历方式：
+ * 			- 迭代器：在遍历的过程中需要删除元素，请使用迭代器。
+ * 			- 增强for、Lambda：
+ * 				仅仅想遍历，那么使用增强for或Lambda表达式。
  *
  *
  * 		LinedHashMap
