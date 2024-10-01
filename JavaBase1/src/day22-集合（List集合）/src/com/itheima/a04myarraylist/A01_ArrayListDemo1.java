@@ -1,7 +1,6 @@
-package com.itheima.a03myarraylist;
+package com.itheima.a04myarraylist;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /*
  * ArrayList集合底层原理：
