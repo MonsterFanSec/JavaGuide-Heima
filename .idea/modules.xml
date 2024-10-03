@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Java.iml" filepath="$PROJECT_DIR$/.idea/Java.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaBase1/JavaBase1.iml" filepath="$PROJECT_DIR$/JavaBase1/JavaBase1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBase1/src/day23-集合（泛型&amp;Set&amp;数据结构）/src/data-structure/data-structure.iml" filepath="$PROJECT_DIR$/JavaBase1/src/day23-集合（泛型&amp;Set&amp;数据结构）/src/data-structure/data-structure.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaBase1/src/day02-Java基础概念/day02-Java基础概念.iml" filepath="$PROJECT_DIR$/JavaBase1/src/day02-Java基础概念/day02-Java基础概念.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaBase1/src/day03-运算符/day03-运算符.iml" filepath="$PROJECT_DIR$/JavaBase1/src/day03-运算符/day03-运算符.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaBase1/src/day04-判断和循环/day04-判断和循环.iml" filepath="$PROJECT_DIR$/JavaBase1/src/day04-判断和循环/day04-判断和循环.iml" />
