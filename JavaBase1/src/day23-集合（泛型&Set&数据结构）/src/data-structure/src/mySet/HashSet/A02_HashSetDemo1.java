@@ -41,6 +41,8 @@ package mySet.HashSet;
  * 		利用两个方法：HashCode方法和equals方法
  * 			HashCode方法可以确定Hash值，而Hash值可以确定当前元素添加在数组的哪个位置；
  * 			然后再去调用equals方法，比较对象内部的属性值是不是相同
+ *
+ * HashSet在遍历的额时候是根据索引，从0开始遍历的，所以HashSet是无序的。
  */
 public class A02_HashSetDemo1 {
 	public static void main(String[] args) {
