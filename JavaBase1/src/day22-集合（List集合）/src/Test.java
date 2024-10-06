@@ -74,22 +74,6 @@
  * 		6.二叉查找树
  * 		7.平衡二叉树
  * 		8.红黑树
- *
- *
- * 		LinedHashMap
- * 		Map
- * 		Collection
- * 		TreeMap
- * 		HashMap
- * 		List
- *
- * Collection集合
- *
- * List集合
- *
- * ArrayList集合
- *
- * LinkedList集合
  */
 public class Test {
 }
