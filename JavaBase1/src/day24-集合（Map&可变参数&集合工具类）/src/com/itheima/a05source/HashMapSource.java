@@ -110,16 +110,37 @@ public class HashMapSource {
 		} else {
 			Node<K, V> e;
 			K k;
+			/*
+			 * 等号的左边：数组中键值对的哈希值
+			 * 等号的右边：当前要添加键值对的哈希值
+			 *
+			 * 如果键不一样，此时返回false
+			 */
 			boolean b1 = p.hash == hash;
 
 			if (b1 && ((k = p.key) == key || (key != null && key.equals(k)))) {
 				e = p;
 			} else if (p instanceof TreeNode) {
+				/*
+				 * 判断数组中获取出来的键值对是否是红黑树中的节点，
+				 * 如果是，则调用方法putTreeVal，把当前的节点按照红黑树的规则添加到树当中。
+				 */
 				e = ((TreeNode<K, V>) p).putTreeVal(this, tab, hash, key, value);
 			} else {
-				for (int binCount = 0; ; ++binCount) {
+				/*
+				 * 如果从数组中获取出来的键值对不是红黑树中的节点
+				 * 进入else表示此时下面挂的是链表，按照链表的规则添加
+				 */
+				for (int binCount = 0; ; ++binCount) {    // 中间判断条件没写，默认为true
 					if ((e = p.next) == null) {
+						// 此时就会创建一个新的节点，挂在下面形成链表
 						p.next = newNode(hash, key, value, null);
+						/*
+						 * 判断当前链表长度是否超过8，如果超过8，就会调用方法treeifyBin
+						 * treeifyBin方法的底层还会继续判断
+						 * 判断数组的长度是否大于等于64
+						 * 如果同时满足这两个条件，就会把这个链表转成红黑树
+						 */
 						if (binCount >= TREEIFY_THRESHOLD - 1) treeifyBin(tab, hash);
 						break;
 					}
@@ -132,6 +153,9 @@ public class HashMapSource {
 				}
 			}
 
+			/*
+			 * 如果e为null，表示当前不需要覆盖任何元素
+			 */
 			if (e != null) {
 				V oldValue = e.value;
 				if (!onlyIfAbsent || oldValue == null) {
