@@ -115,6 +115,7 @@ public class HashMapSource {
 			 * 等号的右边：当前要添加键值对的哈希值
 			 *
 			 * 如果键不一样，此时返回false
+			 * 如果键一样，返回true
 			 */
 			boolean b1 = p.hash == hash;
 
@@ -145,6 +146,11 @@ public class HashMapSource {
 						break;
 					}
 
+					/*
+					 * e: 0x0044				key:444		value:444
+					 * 要添加的元素：0x0055		key:444		value:555
+					 * 如果哈希值一样，就会调用equals方法比较内部的属性值是否相同
+					 */
 					if (e.hash == hash && ((k = e.key) == key || (key != null && key.equals(k)))) {
 						break;
 					}
@@ -155,10 +161,18 @@ public class HashMapSource {
 
 			/*
 			 * 如果e为null，表示当前不需要覆盖任何元素
+			 * 如果e不为null，表示当前的键是一样的，值会被覆盖
+			 *
+			 * e: 0x0044				key:444		value:444
+			 * 要添加的元素：0x0055		key:444		value:555
 			 */
 			if (e != null) {
 				V oldValue = e.value;
 				if (!onlyIfAbsent || oldValue == null) {
+					/*
+					 * 等号的右边：当前要添加的值
+					 * 等号的左边：0x0044的值
+					 */
 					e.value = value;
 				}
 				afterNodeAccess(e);
