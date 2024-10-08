@@ -94,14 +94,18 @@ public class HashMapSource {
 		 */
 		if (tab == null || (n = tab.length) == 0) {
 			tab = resize();
+			// 把当亲啊数组的长度赋值给n
 			n = tab.length;
 		}
 
+		// 拿着数组的长度跟键的哈希值进行计算，计算出当前键值对对象，在数组中应存入的位置
 		i = (n - 1) & hash;
+		// 获取数组中对应元素的数据
 		p = tab[i];
 
 
 		if (p == null) {
+			// 底层会创建一个键值对对象，直接放到数组当中
 			tab[i] = newNode(hash, key, value, null);
 		} else {
 			Node<K, V> e;
