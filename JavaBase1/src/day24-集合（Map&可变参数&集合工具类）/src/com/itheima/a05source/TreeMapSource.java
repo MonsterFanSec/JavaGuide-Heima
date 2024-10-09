@@ -156,26 +156,53 @@ public class TreeMapSource {
 
 			/*
 			 * 按照红黑规则进行调整
+			 * x：表示当前的节点
+			 * parentOf(x)：表示获取当前节点父节点
+			 * parentOf(parentOf(x))：表示获取当前节点的爷爷节点
+			 * leftOf：表示获取左子节点
 			 */
 			while (x != null && x != root && x.parent.color == RED) {
+				/*
+				 * 判断当前节点的父节点是爷爷节点的左子节点还是右子节点
+				 * 目的：为了获取当前节点的叔叔节点
+				 */
 				if (parentOf(x) == leftOf(parentOf(parentOf(x)))) {
+					/*
+					 * 表示当前节点的父节点是爷爷节点的左子节点
+					 * 那么下面就可以用rightOf获取当前节点的叔叔节点
+					 * y：表示叔叔节点
+					 */
 					Entry<K, V> y = rightOf(parentOf(parentOf(x)));
-					if (colorOf(y) == RED) {
+					if (colorOf(y) == RED) {	// 叔叔节点为红色，则执行红黑规则
+						// 1.把父节点设置为黑色
 						setColor(parentOf(x), BLACK);
+						// 2.把叔叔节点设置为黑色
 						setColor(y, BLACK);
+						// 3.把爷爷节点设置为红色
 						setColor(parentOf(parentOf(x)), RED);
+						// 4.把爷爷节点设置为当前节点再来判断
 						x = parentOf(parentOf(x));
-					} else {
-
-						if (x == rightOf(parentOf(x))) {
+					} else {	// 叔叔节点为黑色，则执行红黑规则
+						// 1.判断当前节点是否为父节点的右子节点
+						if (x == rightOf(parentOf(x))) {	// 2.表示当前节点是父节点的右子节点
+							// 3.把父作为当前节点
 							x = parentOf(x);
+							// 4.左旋，再进行判断
 							rotateLeft(x);
 						}
+						// 5.将父节点设为黑色
 						setColor(parentOf(x), BLACK);
+						// 6.将爷爷节点变为红色
 						setColor(parentOf(parentOf(x)), RED);
+						// 7.以爷爷节点作为支点进行右旋
 						rotateRight(parentOf(parentOf(x)));
 					}
 				} else {
+					/*
+					 * 表示当前节点的父节点是爷爷节点的右子节点
+					 * 那么下面就可以用leftOf获取当前节点的叔叔节点
+					 * y：表示叔叔节点
+					 */
 					Entry<K, V> y = leftOf(parentOf(parentOf(x)));
 					if (colorOf(y) == RED) {
 						setColor(parentOf(x), BLACK);
@@ -194,6 +221,7 @@ public class TreeMapSource {
 				}
 			}
 
+			// 把根节点设置为黑色
 			root.color = BLACK;
 		}
 	}
