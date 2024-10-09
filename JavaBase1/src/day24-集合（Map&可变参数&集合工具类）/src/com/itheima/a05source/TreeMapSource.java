@@ -1,3 +1,4 @@
+/*
 package com.itheima.a05source;
 
 import java.util.Comparator;
@@ -40,23 +41,27 @@ public class TreeMapSource {
 			return put(key, value, true);
 		}
 
-		/*
+		*/
+/*
 		 * 添加元素
 		 * @param key				键
 		 * @param value				值
 		 * @param replaceOld		当键重复的时候，是否需要覆盖值
 		 * 								true：覆盖
 		 * 								false：不覆盖
-		 */
+		 *//*
+
 		private V put(K key, V value, boolean replaceOld) {
 			// 获取根节点的地址值，赋值给局部变量t
 			Entry<K, V> t = root;
 
-			/*
+			*/
+/*
 			 * 判断根节点是否为null
 			 * 如果为null，表示当前是第一次添加，会把当前要添加的元素，当作根节点
 			 * 如果不为null，表示当前不是第一次添加，跳过这个判断继续执行下面的代码
-			 */
+			 *//*
+
 			if (t == null) {
 				// addEntryToEmptyMap方法的底层，会创建一个Entry对象，把它当作根节点
 				addEntryToEmptyMap(key, value);
@@ -64,29 +69,35 @@ public class TreeMapSource {
 				return null;
 			}
 
-			/*
+			*/
+/*
 			 * 表示两个元素的键比较之后的结果
 			 * 正数：表示添加的元素是大的，要添加在已有元素的右边；
 			 * 负数：表示添加的元素是小的，要添加在已有元素的左边；
 			 * 零
-			 */
+			 *//*
+
 			int cmp;
 
 			// 表示当前要添加节点的父节点
 			Entry<K, V> parent;
 
-			/*
+			*/
+/*
 			 * 当前的比较规则
 			 * 如果我们采取默认的自然排序，那么此时comparator记录的是null，cpr记录的也是null
 			 * 如果我们采取比较器排序，那么此时comparator记录的就是比较器
-			 */
+			 *//*
+
 			Comparator<? super K> cpr = comparator;
 
-			/*
+			*/
+/*
 			 * 表示判断当前是否有比较器对象
 			 * 如果传递了比较器对象，就执行if里面的代码，此时以比较器的规则为准
 			 * 如果没有传递比较器对象，就执行else里面的代码，此时以自然排序的规则为准
-			 */
+			 *//*
+
 			if (cpr != null) {
 				do {
 					parent = t;
@@ -104,13 +115,15 @@ public class TreeMapSource {
 					}
 				} while (t != null);
 			} else {
-				/*
+				*/
+/*
 				 * k表示当前元素的键
 				 * 把键进行强转，强转成Comparable类型的
 				 * 要求：
 				 * 		键必须要实现Comparable接口，如果没有实现这个接口
 				 * 		此时在强转的时候，就会报错
-				 */
+				 *//*
+
 				Comparable<? super K> k = (Comparable<? super K>) key;
 				do {
 					// t记录的是根节点，把根节点当作当前节点的父节点
@@ -154,24 +167,30 @@ public class TreeMapSource {
 			// 因为红黑树的节点默认就是红色的
 			x.color = RED;
 
-			/*
+			*/
+/*
 			 * 按照红黑规则进行调整
 			 * x：表示当前的节点
 			 * parentOf(x)：表示获取当前节点父节点
 			 * parentOf(parentOf(x))：表示获取当前节点的爷爷节点
 			 * leftOf：表示获取左子节点
-			 */
+			 *//*
+
 			while (x != null && x != root && x.parent.color == RED) {
-				/*
+				*/
+/*
 				 * 判断当前节点的父节点是爷爷节点的左子节点还是右子节点
 				 * 目的：为了获取当前节点的叔叔节点
-				 */
+				 *//*
+
 				if (parentOf(x) == leftOf(parentOf(parentOf(x)))) {
-					/*
+					*/
+/*
 					 * 表示当前节点的父节点是爷爷节点的左子节点
 					 * 那么下面就可以用rightOf获取当前节点的叔叔节点
 					 * y：表示叔叔节点
-					 */
+					 *//*
+
 					Entry<K, V> y = rightOf(parentOf(parentOf(x)));
 					if (colorOf(y) == RED) {	// 叔叔节点为红色，则执行红黑规则
 						// 1.把父节点设置为黑色
@@ -198,11 +217,13 @@ public class TreeMapSource {
 						rotateRight(parentOf(parentOf(x)));
 					}
 				} else {
-					/*
+					*/
+/*
 					 * 表示当前节点的父节点是爷爷节点的右子节点
 					 * 那么下面就可以用leftOf获取当前节点的叔叔节点
 					 * y：表示叔叔节点
-					 */
+					 *//*
+
 					Entry<K, V> y = leftOf(parentOf(parentOf(x)));
 					if (colorOf(y) == RED) {
 						setColor(parentOf(x), BLACK);
@@ -225,4 +246,4 @@ public class TreeMapSource {
 			root.color = BLACK;
 		}
 	}
-}
+}*/

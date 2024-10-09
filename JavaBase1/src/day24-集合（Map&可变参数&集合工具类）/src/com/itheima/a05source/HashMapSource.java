@@ -1,3 +1,4 @@
+/*
 import javax.swing.tree.TreeNode;
 import java.util.HashMap;
 
@@ -33,34 +34,41 @@ public class HashMapSource {
 	hm.put("ddd",444);
 	hm.put("eee",555);
 
-	/*
+	*/
+/*
 	 * 添加元素的时候至少考虑三种情况：
 	 * 2.1 数组位置为null；
 	 * 2.2 数组位置不为null，键重复，元素覆盖
 	 * 2.3 数组位置不为null，键不重复，挂在下面形成链表或者红黑树
-	 */
+	 *//*
 
 
-	/**
+
+	*/
+/**
 	 * @param key   键
 	 * @param value 值
 	 * @return 被覆盖元素的值，如果没有覆盖，返回null
-	 */
+	 *//*
+
 	public V put(K key, V value) {
 		return putVal(hash(key), key, value, false, true);
 	}
 
 
-	/*
+	*/
+/*
 	 * 利用键计算出对应的哈希值，再把哈希值进行一些额外的处理
 	 * 简单理解：返回值就是返回键的哈希值
-	 */
+	 *//*
+
 	static final int hash(Object key) {
 		int h;
 		return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
 	}
 
-	/*
+	*/
+/*
 	 *
 	 * @param hash				键的哈希值
 	 * @param key				键
@@ -69,7 +77,8 @@ public class HashMapSource {
 	 *                          	true，表示老元素的值保留，不会覆盖
 	 *                          	false，表示老元素的值不保留，会进行覆盖
 	 * @param evict				（暂不涉及）
-	 */
+	 *//*
+
 	final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
 		// 定义一个局部变量，用来记录哈希表中数组的地址值
 		Node<K, V>[] tab;
@@ -86,12 +95,14 @@ public class HashMapSource {
 		// 把哈希表中数组的地址值，赋值给局部变量tab
 		tab = table;
 
-		/*
+		*/
+/*
 		 * 1.如果当前是第一次添加数据，底层会创建一个默认长度为16，加载因子为0.75的值
 		 * 2.如果不是第一次添加数据，会看数组中的元素是否达到了扩容的条件
 		 * 		如果没有达到扩容条件，底层不会做任何操作
 		 * 		如果达到了扩容条件，底层会把数组扩容为原先的两倍，并把数据全部转移到新的哈希表中
-		 */
+		 *//*
+
 		if (tab == null || (n = tab.length) == 0) {
 			tab = resize();
 			// 把当亲啊数组的长度赋值给n
@@ -110,47 +121,57 @@ public class HashMapSource {
 		} else {
 			Node<K, V> e;
 			K k;
-			/*
+			*/
+/*
 			 * 等号的左边：数组中键值对的哈希值
 			 * 等号的右边：当前要添加键值对的哈希值
 			 *
 			 * 如果键不一样，此时返回false
 			 * 如果键一样，返回true
-			 */
+			 *//*
+
 			boolean b1 = p.hash == hash;
 
 			if (b1 && ((k = p.key) == key || (key != null && key.equals(k)))) {
 				e = p;
 			} else if (p instanceof TreeNode) {
-				/*
+				*/
+/*
 				 * 判断数组中获取出来的键值对是否是红黑树中的节点，
 				 * 如果是，则调用方法putTreeVal，把当前的节点按照红黑树的规则添加到树当中。
-				 */
+				 *//*
+
 				e = ((TreeNode<K, V>) p).putTreeVal(this, tab, hash, key, value);
 			} else {
-				/*
+				*/
+/*
 				 * 如果从数组中获取出来的键值对不是红黑树中的节点
 				 * 进入else表示此时下面挂的是链表，按照链表的规则添加
-				 */
+				 *//*
+
 				for (int binCount = 0; ; ++binCount) {    // 中间判断条件没写，默认为true
 					if ((e = p.next) == null) {
 						// 此时就会创建一个新的节点，挂在下面形成链表
 						p.next = newNode(hash, key, value, null);
-						/*
+						*/
+/*
 						 * 判断当前链表长度是否超过8，如果超过8，就会调用方法treeifyBin
 						 * treeifyBin方法的底层还会继续判断
 						 * 判断数组的长度是否大于等于64
 						 * 如果同时满足这两个条件，就会把这个链表转成红黑树
-						 */
+						 *//*
+
 						if (binCount >= TREEIFY_THRESHOLD - 1) treeifyBin(tab, hash);
 						break;
 					}
 
-					/*
+					*/
+/*
 					 * e: 0x0044				key:444		value:444
 					 * 要添加的元素：0x0055		key:444		value:555
 					 * 如果哈希值一样，就会调用equals方法比较内部的属性值是否相同
-					 */
+					 *//*
+
 					if (e.hash == hash && ((k = e.key) == key || (key != null && key.equals(k)))) {
 						break;
 					}
@@ -159,20 +180,24 @@ public class HashMapSource {
 				}
 			}
 
-			/*
+			*/
+/*
 			 * 如果e为null，表示当前不需要覆盖任何元素
 			 * 如果e不为null，表示当前的键是一样的，值会被覆盖
 			 *
 			 * e: 0x0044				key:444		value:444
 			 * 要添加的元素：0x0055		key:444		value:555
-			 */
+			 *//*
+
 			if (e != null) {
 				V oldValue = e.value;
 				if (!onlyIfAbsent || oldValue == null) {
-					/*
+					*/
+/*
 					 * 等号的右边：当前要添加的值
 					 * 等号的左边：0x0044的值
-					 */
+					 *//*
+
 					e.value = value;
 				}
 				afterNodeAccess(e);
@@ -180,11 +205,13 @@ public class HashMapSource {
 			}
 		}
 
-		/*
+		*/
+/*
 		 * threshold：记录的就是数组长度 * 0.75，表示哈希表的扩容时机；
 		 *
 		 * 第一次添加，比较 1 是否大于 16 * 0.75 = 12；
-		 */
+		 *//*
+
 		if (++size > threshold) {
 			resize();
 		}
@@ -193,3 +220,4 @@ public class HashMapSource {
 		return null;
 	}
 }
+*/
