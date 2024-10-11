@@ -10,7 +10,7 @@ import java.util.Set;
  *      细节2：
  *          Map里面的of方法，参数是有上限的，最多只能传递20个参数，10个键值对
  *      细节3：
- *          如果我们要传递多个键值对对象，数量大于10个，在Map接口中还有一个方法
+ *          如果我们要传递多个键值对对象，数量大于10个，在Map接口中还有一个方法，详情见ImmutableDemo4
  */
 public class ImmutableDemo3 {
 	public static void main(String[] args) {
@@ -44,4 +44,17 @@ public class ImmutableDemo3 {
 		}
 		System.out.println("--------------------------");
 	}
+
+	/*
+	 * 如果我想让这个方法能够接收多个键和值
+	 *
+	 * 解决方案：
+	 * 		键，变成可变参数；值，变成可变参数
+	 * 		类型不确定：使用泛型方法
+	 *
+	 *
+	 * public static <K, V> void of(K... keys, V... values) {    // 报错：Vararg parameter must be the last in the list
+	 *
+	 * }
+	 */
 }
