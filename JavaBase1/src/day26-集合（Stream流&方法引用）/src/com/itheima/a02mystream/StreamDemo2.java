@@ -12,15 +12,31 @@ import java.util.stream.Stream;
  * Stream流的使用步骤：
  * 		1.先得到一条Stream流（流水线），并把数据放上去
  * 			单列集合      default Stream<E> stream()                              Collection中的默认方法
- * 			双列集合      无                                                      无法直接使用stream流，需要先通过KeySet()或entrySet()先转成单列集合
+ * 			双列集合      无                                                      无法直接使用stream流（需要先通过KeySet()或entrySet()先转成单列集合）
  * 			数组          public static <T> Stream<T> stream(T[] array)          Arrays工具类中的静态方法
- * 			一堆零散数据   public static<T> Stream<T> of(T... values)             Stream接口中的静态方法，values需要保持类型一致
+ * 			一堆零散数据   public static<T> Stream<T> of(T... values)             Stream接口中的静态方法of（其中values需要保持类型一致）
  *
  * 		2.利用Stream流中的中间方法对流水线上的数据进行操作
  * 			过滤、转换		中间方法：方法调用完毕之后，还可以调用其他方法
  *
  * 		3.利用Stream流中的终结方法对流水线上的数据进行操作
  * 			统计、打印		终结方法：最后一步，调用完毕之后，不能调用其他方法
+ *
+ * 总结：
+ * 	1.Stream流的作用
+ *		结合了Lambda表达式，简化集合、数组的操作
+ * 	2.Stream的使用步骤
+ * 		- 获取Stream流对象
+ * 		- 使用中间方法处理数据
+ * 		- 使用终结方法处理数据
+ * 	3.如何获取Stream流对象
+ * 		- 单列集合：Collection中的默认方法stream
+ * 		- 双列集合：不能直接获取stream流（需要先通过KeySet()或entrySet()先转成单列集合）
+ * 		- 数组：Arrays工具类中的静态方法stream
+ * 		- 一堆零散数据：Stream接口中的静态方法of
+ *  4.常见方法：
+ * 		中间方法：filter，limit，skip，distinct，concat，map
+ * 		终结方法：forEach，count，collect
  */
 
 
