@@ -29,10 +29,11 @@ package com.itheima.myexception;
  * 		父类：Exception。
  * 		异常分为两类：编译时异常、运行时异常
  *  3.编译时异常和运行时异常的区别？
- * 		编译时异常：没有继承RuntimeException的异常，直接继承于Exception。
- * 				  编译阶段就会错误提示
- * 		运行时异常：RuntimeException本身和子类。
+ * 		编译时异常：没有继承RuntimeException的异常，直接继承于Exception。（即：除了RuntimeException和他的子类，其余都是编译时异常）
+ * 				  编译阶段就会错误提示，需要进行处理，作用在于提醒程序员。
+ * 		运行时异常：RuntimeException本身和子类，都是运行时异常。
  * 				  编译阶段没有错误提示，运行时出现的。
+ * 				  一般是由于参数传递错误带来的问题。
  *
  */
 public class Test {
