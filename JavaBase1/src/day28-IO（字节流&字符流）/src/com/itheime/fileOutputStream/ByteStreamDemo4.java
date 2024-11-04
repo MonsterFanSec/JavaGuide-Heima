@@ -1,4 +1,4 @@
-package com.itheime.mybytestream1;
+package com.itheime.fileOutputStream;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package com.itheime.mybytestream1;
+package com.itheime.fileOutputStream;
 
 /*
  * FileOutputStream:
