@@ -27,16 +27,15 @@ import java.io.IOException;
  */
 public class ByteStreamDemo2 {
 	public static void main(String[] args) throws IOException {
-		//1.创建对象
+		// 1.创建对象
 		String parentPath = "/Users/daykalif/Desktop/Java/JavaBase1/src/day28-IO（字节流&字符流）/src/com/itheime/fileInputStream/b.txt";
-
 		FileInputStream fis = new FileInputStream(parentPath);
-		//2.读取数据
+
+		// 2.读取数据
 		int b1 = fis.read();
 		System.out.println((char) b1);
+
 		//3.释放资源
 		fis.close();
-
-
 	}
 }
