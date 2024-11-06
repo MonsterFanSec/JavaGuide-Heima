@@ -25,7 +25,7 @@ public class BufferedStreamDemo1 {
 
 		// 2.循环读取并写到目的地
 		int b;
-		while ((b = bis.read()) != -1) {
+		while ((b = bis.read()) != -1) {	// 一次读写一个字节
 			bos.write(b);
 		}
 
