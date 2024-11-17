@@ -9,7 +9,7 @@ import java.util.zip.ZipOutputStream;
 
 /*
  *   压缩流
- *      需求： 把a.txt打包成一个压缩包
+ *      需求： 把/aaa/bbb/c.txt打包成一个压缩包
  * */
 public class ZipStreamDemo2 {
 	public static void main(String[] args) throws IOException {
