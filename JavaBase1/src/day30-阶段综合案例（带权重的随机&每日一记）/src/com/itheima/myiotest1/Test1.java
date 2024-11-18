@@ -73,6 +73,20 @@ public class Test1 {
 			}
 		}
 
+		/*
+		 * 5.生成数据
+		 * 姓名（唯一）-性别-年龄
+		 */
+		ArrayList<String> list = getInfos(familyNameList, boyNameList, girlNameList, 70, 50);
+		Collections.shuffle(list);
+
+		// 6.写出数据
+		BufferedWriter bw = new BufferedWriter(new FileWriter("/Users/daykalif/Desktop/Java/JavaBase1/src/day30-阶段综合案例（带权重的随机&每日一记）/src/com/itheima/myiotest1/names.txt"));
+		for (String str : list) {
+			bw.write(str);
+			bw.newLine();
+		}
+		bw.close();
 	}
 
 	/*
@@ -126,5 +140,59 @@ public class Test1 {
 		}
 		return list;
 	}
-	
+
+	/*
+	 * 获取男生和女生的信息：张三-男-23
+	 *
+	 * @param familyNameList 装着姓氏的集合
+	 * @param boyNameList    装着男生名字的集合
+	 * @param girlNameList   装着女生名字的集合
+	 * @param boyCount       男生的个数
+	 * @param girlCount      女生的个数
+	 * @return
+	 */
+	public static ArrayList<String> getInfos(ArrayList<String> familyNameList, ArrayList<String> boyNameList, ArrayList<String> girlNameList, int boyCount, int girlCount) {
+		// 1.生成男生不重复的名字
+		HashSet<String> boyhs = new HashSet<>();
+		while (true) {
+			if (boyhs.size() == boyCount) {
+				break;
+			}
+			// 随机：用shuffle打乱集合
+			Collections.shuffle(familyNameList);
+			Collections.shuffle(boyNameList);
+			boyhs.add(familyNameList.get(0) + boyNameList.get(0));
+		}
+
+		// 2.生成女生不重复的名字
+		HashSet<String> girlhs = new HashSet<>();
+		while (true) {
+			if (girlhs.size() == girlCount) {
+				break;
+			}
+			// 随机
+			Collections.shuffle(familyNameList);
+			Collections.shuffle(girlNameList);
+			girlhs.add(familyNameList.get(0) + girlNameList.get(0));
+		}
+
+		// 3.生成男生的信息并添加到集合当中
+		ArrayList<String> list = new ArrayList<>();
+		Random r = new Random();
+		// 【18 ~ 27】
+		for (String boyName : boyhs) {
+			// boyName依次表示每一个男生的名字
+			int age = r.nextInt(10) + 18;
+			list.add(boyName + "-男-" + age);
+		}
+
+		// 4.生成女生的信息并添加到集合当中
+		// 【18 ~ 25】
+		for (String girlName : girlhs) {
+			// girlName依次表示每一个女生的名字
+			int age = r.nextInt(8) + 18;
+			list.add(girlName + "-女-" + age);
+		}
+		return list;
+	}
 }
