@@ -35,6 +35,44 @@ public class Test1 {
 		ArrayList<String> familyNameTempList = getData(familyNameStr, "(\\W{4})(，|。)", 1);    // 正则：4个任意字符后面跟逗号或者句号；第三个参数index表示捕获分组：即需要获取正则中的第一组数据
 		ArrayList<String> boyNameTempList = getData(boyNameStr, "([\\u4E00-\\u9FA5]{2})(、|。)", 1);
 		ArrayList<String> girlNameTempList = getData(girlNameStr, "(.. ){4}..", 0);    // 正则：(2个中文+空格)这个组合出现4次，第5组是2个中文
+
+		// 4.处理数据
+		/*
+		 * familyNameTempList（姓氏）
+		 * 处理方案：把每一个姓氏拆开并添加到一个新的集合当中
+		 */
+		ArrayList<String> familyNameList = new ArrayList<>();
+		for (String str : familyNameTempList) {
+			// str：赵钱孙李  周吴郑王   冯陈褚卫   蒋沈韩杨
+			for (int i = 0; i < str.length(); i++) {
+				char c = str.charAt(i);
+				familyNameList.add(c + "");    // c是char类型，需要转成String类型
+			}
+		}
+
+		/*
+		 * boyNameTempList（男生的名字）
+		 * 处理方案：去除其中的重复元素
+		 */
+		ArrayList<String> boyNameList = new ArrayList<>();
+		for (String str : boyNameTempList) {
+			if (!boyNameList.contains(str)) {
+				boyNameList.add(str);
+			}
+		}
+
+		/*
+		 * girlNameTempList（女生的名字）
+		 * 处理方案：把里面的每一个元素用空格进行切割，得到每一个女生的名字
+		 */
+		ArrayList<String> girlNameList = new ArrayList<>();
+		for (String str : girlNameTempList) {
+			String[] arr = str.split(" ");
+			for (int i = 0; i < arr.length; i++) {
+				girlNameList.add(arr[i]);
+			}
+		}
+
 	}
 
 	/*
@@ -88,5 +126,5 @@ public class Test1 {
 		}
 		return list;
 	}
-
+	
 }
