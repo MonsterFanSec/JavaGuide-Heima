@@ -33,7 +33,8 @@ public class Test1 {
 
 		// 3.通过正则表达式，把其中符合要求的数据获取出来
 		ArrayList<String> familyNameTempList = getData(familyNameStr, "(\\W{4})(，|。)", 1);    // 正则：4个任意字符后面跟逗号或者句号；第三个参数index表示捕获分组：即需要获取正则中的第一组数据
-		System.out.println(familyNameTempList);
+		ArrayList<String> boyNameTempList = getData(boyNameStr, "([\\u4E00-\\u9FA5]{2})(、|。)", 1);
+		ArrayList<String> girlNameTempList = getData(girlNameStr, "(.. ){4}..", 0);    // 正则：(2个中文+空格)这个组合出现4次，第5组是2个中文
 	}
 
 	/*
