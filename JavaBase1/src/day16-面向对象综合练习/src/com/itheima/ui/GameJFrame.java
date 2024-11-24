@@ -42,7 +42,8 @@ public class GameJFrame extends JFrame implements KeyListener, ActionListener {
 	 *  	相对路径：不是从盘符开始的
 	 *      相对路径相对当前项目而言的。 aaa/bbb
 	 *      在当前项目下，去找aaa文件夹，里面再找bbb文件夹。
-	 */ String path = "/Users/daykalif/Desktop/Java/JavaBase1/src/day16-面向对象综合练习";
+	 */
+	String path = "/Users/daykalif/Desktop/Java/JavaBase1/src/day16-面向对象综合练习";
 	String imagePath = "/image/animal/animal2";
 
 
