@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.*;
+import java.util.Properties;
 import java.util.Random;
 
 public class GameJFrame extends JFrame implements KeyListener, ActionListener {
@@ -254,7 +255,6 @@ public class GameJFrame extends JFrame implements KeyListener, ActionListener {
 		this.setJMenuBar(jMenuBar);
 	}
 
-
 	public void getGameInfo() {
 		//1.创建File对象表示所有存档所在的文件夹
 		File file = new File("JavaBase1/src/day30-阶段综合案例（带权重的随机&每日一记）/src/puzzlegame/save");
@@ -291,7 +291,6 @@ public class GameJFrame extends JFrame implements KeyListener, ActionListener {
 			loadJMenu.getItem(index).setText("读档" + index + "(" + step + ")步");
 		}
 	}
-
 
 	private void initJFrame() {
 		//设置界面的宽高
@@ -468,10 +467,29 @@ public class GameJFrame extends JFrame implements KeyListener, ActionListener {
 			System.exit(0);
 		} else if (obj == accountItem) {
 			System.out.println("公众号");
+
+			//	1.创建集合
+			Properties prop = new Properties();
+			//	2.读取数据：try/catch快捷键 option + command + T
+			try {
+				FileInputStream fis = new FileInputStream("JavaBase1/src/day30-阶段综合案例（带权重的随机&每日一记）/src/puzzlegame/game.properties");
+				prop.load(new InputStreamReader(fis, "UTF-8"));
+				fis.close();
+			} catch (IOException ex) {
+				throw new RuntimeException(ex);
+			}
+			// 3.表示配置文件中的数据已经读到集合当中
+
+			//for (String key : prop.stringPropertyNames()) {
+			//	System.out.println(key + ":" + prop.getProperty(key));
+			//}
+			System.out.println(prop);    // 注意⚠️：路径中如果有中文会出现乱码
+			String picPath = (String) prop.get("account");
+
 			//创建一个弹框对象
 			JDialog jDialog = new JDialog();
 			//创建一个管理图片的容器对象JLabel
-			JLabel jLabel = new JLabel(new ImageIcon("JavaBase1/src/day30-阶段综合案例（带权重的随机&每日一记）/src/puzzlegame/image/about.png"));
+			JLabel jLabel = new JLabel(new ImageIcon(picPath));
 			//设置位置和宽高
 			jLabel.setBounds(0, 0, 258, 258);
 			//把图片添加到弹框当中
