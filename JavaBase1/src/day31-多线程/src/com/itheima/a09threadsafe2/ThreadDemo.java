@@ -3,6 +3,18 @@ package com.itheima.a09threadsafe2;
 /*
  * 需求：
  *      某电影院目前正在上映国产大片，共有100张票，而它有3个窗口卖票，请设计一个程序模拟该电影院卖票
+ *
+ * 技巧：同步代码块
+ * 同步代码块：
+ * 		把操作共享数据的代码锁起来
+ *
+ * 格式：
+ * 		synchronized (锁){
+ * 			操作共享数据的代码
+ * 		}
+ *
+ * 	特点1:锁默认打开，有一个线程进去了，锁自动关闭
+ *  特点2:里面的代码全部执行完毕，线程出来，锁自动打开
  */
 public class ThreadDemo {
 	public static void main(String[] args) {
