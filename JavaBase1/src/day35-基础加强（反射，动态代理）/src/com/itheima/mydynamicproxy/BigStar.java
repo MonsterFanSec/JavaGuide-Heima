@@ -11,14 +11,14 @@ public class BigStar implements Star {
 		this.name = name;
 	}
 
-	//唱歌
+	// 唱歌
 	@Override
 	public String sing(String name) {
 		System.out.println(this.name + "正在唱" + name);
 		return "谢谢";
 	}
 
-	//跳舞
+	// 跳舞
 	@Override
 	public void dance() {
 		System.out.println(this.name + "正在跳舞");
