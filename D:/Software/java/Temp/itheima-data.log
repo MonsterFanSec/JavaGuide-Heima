@@ -1,0 +1,5 @@
+2024-12-18 22:19:34.160 [main] DEBUG LogDemo1 - chu方法开始执行咯~~
+2024-12-18 22:19:34.160 [main] INFO  LogDemo1 - chu方法开始执行咯~~
+2024-12-18 22:19:34.162 [main] DEBUG LogDemo1 - 参数a:3
+2024-12-18 22:19:34.162 [main] DEBUG LogDemo1 - 参数a:0
+2024-12-18 22:19:34.162 [main] ERROR LogDemo1 - 报错了！！！！

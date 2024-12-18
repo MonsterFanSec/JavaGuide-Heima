@@ -38,6 +38,16 @@ package com.itheima.log;
  *  2.日志的实现框架有那些常见的？
  * 		- Log4J
  * 		- Logback（我们重点学习的，其他的都大同小异）
+ *
+ * ----------------------------------------------------------------------------
+ * Logback日志框架
+ *  - Logback是基于slf4j的日志规范实现的框架，性能比之前使用的log4j要好。
+ *  - 官方网址：https://logback.qos.ch/index.html
+ *
+ * Logback主要分为三个技术模块：
+ *  - logback-core:该模块为其他两个模块提供基础代码，必须有。
+ *  - logback-classic：完整实现了slf4j API的模块。
+ *  - logback-access模块与Tomcat和Jetty等Servlet容器集成，以提供HTTP访问日志功能。
  */
 public class Test {
 	public static void main(String[] args) {

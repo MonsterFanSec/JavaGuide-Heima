@@ -1,0 +1,5 @@
+2024-12-18 22:23:56.465 [main] DEBUG LogDemo1.class - chu方法开始执行咯~~
+2024-12-18 22:23:56.466 [main] INFO  LogDemo1.class - chu方法开始执行咯~~
+2024-12-18 22:23:56.467 [main] DEBUG LogDemo1.class - 参数a:3
+2024-12-18 22:23:56.468 [main] DEBUG LogDemo1.class - 参数a:0
+2024-12-18 22:23:56.468 [main] ERROR LogDemo1.class - 报错了！！！！
