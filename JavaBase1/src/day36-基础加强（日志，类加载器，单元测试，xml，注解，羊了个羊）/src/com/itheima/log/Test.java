@@ -48,6 +48,18 @@ package com.itheima.log;
  *  - logback-core:该模块为其他两个模块提供基础代码，必须有。
  *  - logback-classic：完整实现了slf4j API的模块。
  *  - logback-access模块与Tomcat和Jetty等Servlet容器集成，以提供HTTP访问日志功能。
+ *
+ *
+ * 1、如果系统上线后只想记录一些错误的日志信息或者不想记录日志了，怎么办？
+ * 		- 可以通过设置日志的输出级别来控制哪些日志信息输出或者不输出。
+ *
+ * 总结：
+ * 	1.设置日志输出级别的作用是什么？
+ * 		- 用于控制系统中哪些日志级别是可以输出的。
+ *  2.Logback的日志级别是什么样的？
+ * 		- 级别程度一次是：TRACE < DEBUG < INFO < WARN < ERROR
+ * 		- 默认级别是debug（忽略大小写），只输出不低于当前级别的日志
+ * 		= ALL 和 OFF 分别是打开全部日志和关闭全部日志
  */
 public class Test {
 	public static void main(String[] args) {
