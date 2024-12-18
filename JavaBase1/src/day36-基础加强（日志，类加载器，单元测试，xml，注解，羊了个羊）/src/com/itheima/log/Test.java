@@ -15,6 +15,45 @@ package com.itheima.log;
  * 日志技术具备的优势
  *  - 可以将系统执行的信息选择性的记录到指定的位置（控制台、文件中、数据库中）。
  *  - 可以随时以开关的形式控制是否记录日志，无需修改源代码。
+ *
+ * ----------------------------------------------------------------------------
+ * 日志规范接口：
+ * 		Commons Logging
+ * 			简称：JCL
+ * 		Simple Logging Facade for Java
+ * 			简称：slf4j
+ *
+ * 日志规范：一些接口，提供给日志的实现框架设计的标准。
+ * 日志框架：牛人或者第三方公司已经做好的日志记录实现代码，后来直接可以拿去使用。
+ * 因为对Commons Logging的接口不满意，有人就搞了SLF4J。因为对Log4j的性能不满意，有人就搞了Logback。
+ *
+ *
+ * 总结：
+ * 	1.日志的规范是什么，常见的有几种形式。
+ * 		- 日志规范大多是一些接口，提供给实现框架去设计的。
+ * 		- 常见的规范是：
+ * 			- Commons Logging
+ * 			- Simple Logging Facade for Java
+ *
+ *  2.日志的实现框架有那些常见的？
+ * 		- Log4J
+ * 		- Logback（我们重点学习的，其他的都大同小异）
  */
 public class Test {
+	public static void main(String[] args) {
+
+	}
+
+	/*
+	 * 作用：把一些信息永久的保存到本地文件
+	 * 方法起的见名之意
+	 *
+	 * infoToFile
+	 * 以前有一个程序猿，偷懒写成info2File，这种习惯就被保留下来了
+	 * To:2
+	 * For:4
+	 */
+	public static void info2File() {
+
+	}
 }
