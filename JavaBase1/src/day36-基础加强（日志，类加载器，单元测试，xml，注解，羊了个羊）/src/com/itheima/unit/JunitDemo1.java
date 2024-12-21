@@ -22,10 +22,14 @@ public class JunitDemo1 {
 
 	@Test
 	public void method2() {
-		System.out.println(2/0);
+		System.out.println(2 / 0);
 		int a = 10;
 		int b = 20;
 		int result = a + b;
 		System.out.println(result);
+	}
+
+	public int add(int a, int b) {
+		return a + b;
 	}
 }
