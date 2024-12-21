@@ -21,5 +21,5 @@ package com.itheima.unit;
  * 		- JUnit可以生成测试报告，如果测试良好则是绿色；如果测试失败，则是红色。
  * 		- 单元测试中的某个方法测试失败了，不会影响其他测试方法的测试。
  */
-public class Test {
+public class Test1 {
 }
