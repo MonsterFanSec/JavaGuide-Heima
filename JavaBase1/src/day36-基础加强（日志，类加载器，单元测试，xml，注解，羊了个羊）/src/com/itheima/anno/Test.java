@@ -7,6 +7,13 @@ import java.util.Date;
  * 		Annotation表示注解。是JDK1.5的新特性。
  * 		注解的主要作用：对我们的程序进行标注。通过注解可以给类增加额外的信息。
  * 		注解是给编译器或JVM看的，编译器或JVM可以根据注解来完成对应的功能。
+ *
+ * 元注解：
+ * 	- 元注解：就是注解注解的注解。
+ * 			写在注解上面的注解。
+ *  - 元注解有两个：
+ * 		@Target：约束自定义注解只能在哪些地方使用
+ * 		@Retention：申明注解的生命周期
  */
 @SuppressWarnings("all")
 public class Test {
