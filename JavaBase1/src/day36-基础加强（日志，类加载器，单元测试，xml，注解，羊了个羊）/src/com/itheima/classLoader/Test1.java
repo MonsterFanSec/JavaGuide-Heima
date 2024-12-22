@@ -18,6 +18,11 @@ package com.itheima.classLoader;
  * 		1.当一个类被使用的时候，才会加载到内存
  * 		2.类加载的过程如下：
  * 			加载、验证、准备、解析、初始化
+ *
+ * 类加载器的分类：
+ * 		1.启动类加载器（Bootstrap Class Loader）：虚拟机内置的类加载器。
+ * 		2.平台类加载器（Platform Class Loader）：负责加载JDK中一些特殊的模块。
+ * 		3.系统类加载器（System Class Loader）：负责加载用户类路径上所指定的类库。
  */
 public class Test1 {
 }
