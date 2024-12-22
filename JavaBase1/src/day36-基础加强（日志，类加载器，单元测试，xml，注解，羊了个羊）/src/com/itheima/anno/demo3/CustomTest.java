@@ -1,4 +1,4 @@
-package com.itheima.anno;
+package com.itheima.anno.demo3;
 
 /*
  * 自定义注解 -- 格式

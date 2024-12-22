@@ -1,4 +1,4 @@
-package com.itheima.anno;
+package com.itheima.anno.demo3;
 
 public @interface MyAnnoDemo3 {
 	public int age();

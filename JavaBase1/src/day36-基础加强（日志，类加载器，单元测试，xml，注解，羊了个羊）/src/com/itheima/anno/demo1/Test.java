@@ -1,4 +1,4 @@
-package com.itheima.anno;
+package com.itheima.anno.demo1;
 
 import java.util.Date;
 
