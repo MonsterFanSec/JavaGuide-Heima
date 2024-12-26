@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<student>
+    <student id="1">
+        <name>张三 &lt; 李四</name>
+        <name>哈哈 <![CDATA[  <<<<>>>>> ]]> 嘿嘿</name>
+    </student>
+</student>
