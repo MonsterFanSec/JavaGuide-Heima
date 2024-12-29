@@ -3,6 +3,7 @@ package com.itheima.xml.xpathdemo;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
+import org.dom4j.Node;
 import org.dom4j.io.SAXReader;
 
 import java.io.File;
@@ -29,5 +30,9 @@ public class XPathDemo1 {
 			System.out.println(element.getName());
 			System.out.println(element.getText());
 		}
+
+		System.out.println("==============================================");
+		Node node = document.selectSingleNode("/persons/person/name");
+		System.out.println(node.getText());	// 如果有重复，会获取第一个
 	}
 }
