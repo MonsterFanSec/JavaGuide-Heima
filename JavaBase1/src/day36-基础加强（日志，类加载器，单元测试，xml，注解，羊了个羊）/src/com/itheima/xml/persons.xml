@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <persons>
     <person id="1">
+        text1
         <name>zhangsan</name>
         <age>23</age>
     </person>
 
     <person id="2">
+        text2
         <name>lisi</name>
         <age>24</age>
     </person>
 
-    <person id="3">
+    <person id="2">
+        text3
         <name>wangwu</name>
         <age>25</age>
     </person>
 
     <a></a>
-    <name>zhaoliu</name>
+    <name id="4">
+        zhaoliu
+    </name>
 </persons>
